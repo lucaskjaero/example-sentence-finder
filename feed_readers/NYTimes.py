@@ -3,14 +3,11 @@ import requests
 
 from bs4 import BeautifulSoup
 
-from feed_reader import FeedReader
+from feed_reader_base import FeedReader
 
 NY_TIMES_URL = "https://cn.nytimes.com/rss.html"
 
 class NYTimes(FeedReader):
-    def get_sentences(self):
-        raise NotImplementedError
-
     def get_articles(self):
         articles = []
         for title, link in download_feed_data():

@@ -7,9 +7,5 @@ class FeedReader:
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def get_sentences(self):
-        raise NotImplementedError
-
-    @abstractmethod
     def get_articles(self):
         raise NotImplementedError
