@@ -103,3 +103,4 @@ ENV/
 
 # Information files
 article_headers.csv
+feed_readers/*.txt

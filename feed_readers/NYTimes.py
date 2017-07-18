@@ -1,5 +1,6 @@
+from urllib.request import urlopen
+
 import feedparser
-import requests
 
 from bs4 import BeautifulSoup
 
@@ -29,7 +30,7 @@ def download_feed_data():
 
 
 def get_article_text(link):
-    html = requests.get(link).text
+    html = urlopen(link).read()
     page = BeautifulSoup(html, "html5lib")
 
     content_div = page.find(id="content")
