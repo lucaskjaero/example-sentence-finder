@@ -104,3 +104,4 @@ ENV/
 # Information files
 article_headers.csv
 feed_readers/*.txt
+wikipedia/zhwiki-20170701-pages-meta-current.xml.bz2
