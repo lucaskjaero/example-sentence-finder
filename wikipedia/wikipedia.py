@@ -1,11 +1,21 @@
 from xml.etree.cElementTree import iterparse
 import codecs
 
+from bs4 import BeautifulSoup
+
 PATH = "zhwiki-20170701-pages-meta-current.xml"
 
 
 def process_page(xml):
-    print(xml)
+    soup = BeautifulSoup(xml, "lxml-xml")
+    title = soup.title.string
+    text = soup.get_text()
+
+    if "talk" not in title and "User" not in title and "Talk" not in title and "Wikipedia" not in title and "Help" not in title:
+        print(title)
+        print()
+        print(text)
+        print("+" * 40)
 
 
 def get_wikipedia_pages(path=PATH):
@@ -26,7 +36,7 @@ def get_wikipedia_pages(path=PATH):
 
                 # Let's develop with a reasonable number of articles first
                 count = count + 1
-                if count > 100:
+                if count > 5:
                     break
             elif append:
                 inputbuffer += line
